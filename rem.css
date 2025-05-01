@@ -1,0 +1,253 @@
+
+.reminder-container {
+    padding: 1.5rem;
+    color: var(--text-dark);
+}
+
+.reminder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.reminder-header h1 {
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.8rem;
+}
+
+#add-reminder-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+#add-reminder-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.upcoming-reminders,
+.active-reminders {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.upcoming-reminders h2,
+.active-reminders h2 {
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.reminder-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.reminder-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    border-left: 4px solid var(--accent-color);
+}
+
+.reminder-card.urgent {
+    border-left-color: #e63946;
+    background: rgba(230, 57, 70, 0.1);
+}
+
+.reminder-medication {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.reminder-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+}
+
+.reminder-days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 0.8rem;
+}
+
+.reminder-days span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.time-remaining {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.reminder-card.urgent .time-remaining {
+    color: #e63946;
+}
+
+.reminder-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 0.5rem;
+}
+
+.reminder-action-btn {
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.snooze-btn {
+    background-color: #f4a261;
+    color: white;
+}
+
+.dismiss-btn {
+    background-color: #2a9d8f;
+    color: white;
+}
+
+.delete-reminder-btn {
+    background-color: #e63946;
+    color: white;
+}
+
+.day-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.day-selector label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+.reminder-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 300px;
+    transform: translateX(150%);
+    transition: transform 0.3s ease;
+}
+
+.reminder-notification.show {
+    transform: translateX(0);
+}
+
+.reminder-notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reminder-notification-title {
+    font-weight: 600;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reminder-notification-close {
+    background: none;
+    border: none;
+    color: var(--text-dark);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.reminder-notification-body {
+    font-size: 0.9rem;
+}
+
+.reminder-notification-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .reminder-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .reminder-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .reminder-notification {
+        width: calc(100% - 40px);
+    }
+}
+
+#medication-times-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.medication-time {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.no-times {
+    color: #e63946;
+    font-size: 0.9rem;
+    font-style: italic;
+}

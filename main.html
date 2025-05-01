@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Assist </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="med.css">
+    <link rel="stylesheet" href="rem.css">
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="pre.css">
+    <link rel="stylesheet" href="em.css">
+</head>
+<body>
+    
+    <div class="falling-icons" id="fallingIcons"></div>
+
+   
+    <header>
+        <div class="header-logo">
+            <img src="logo.png" alt="Medical Assist Logo" class="logo-img">
+            <span class="logo-text">Medical Assistance</span>
+        </div>
+        <div class="user-profile">
+            <span>Welcome, wissem </span>
+            <div class="profile-pic"> </div>
+            <button class="logout-btn" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </header>
+
+   
+    <div class="theme-switcher-bottom">
+        <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+        <label for="theme-toggle" class="toggle-label">
+            <span class="toggle-handle"></span>
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </label>
+    </div>
+
+   
+    <div class="dashboard-container">
+      
+        <nav class="sidebar">
+            <ul>
+                <li class="active" data-section="home"><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li data-section="medications"><a href="#"><i class="fas fa-pills"></i> Medications</a></li>
+                <li data-section="reminders"><a href="#"><i class="fas fa-bell"></i> Reminders</a></li>
+                <li data-section="appointments"><a href="#"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+                <li data-section="prescriptions"><a href="#"><i class="fas fa-file-prescription"></i> Prescriptions</a></li>
+                <li data-section="contacts"><a href="#"><i class="fas fa-phone-alt"></i> Emergency</a></li>
+                
+               
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            
+            <section class="content-section active" id="home">
+                <div class="hero-container">
+                    <div class="hero-image">
+                      
+                        <img src="medical-illustration.png" alt="Healthcare Illustration">
+                    </div>
+                    <div class="hero-content">
+                        <h1>Your Personal Health Companion</h1>
+                        <p class="subtitle">
+                            <span class="highlight-text">Medical Assist helps you manage medications, appointments, and health records in one secure place.</span>
+                        </p>
+                        
+                        <div class="key-features">
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>Secure</h3>
+                                <p>Your health data protected with encryption</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-heartbeat"></i>
+                                <h3>Comprehensive</h3>
+                                <p>All your healthcare needs in one platform</p>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h3>Accessible</h3>
+                                <p>Available anytime, anywhere</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Emergency Contacts Section -->
+<section class="content-section" id="contacts">
+    <div class="emergency-container">
+        <div class="emergency-header">
+            <h1><i class="fas fa-phone-alt"></i> Emergency Contacts</h1>
+            <button id="add-contact-btn" class="btn-primary">
+                <i class="fas fa-plus"></i> Add Contact
+            </button>
+        </div>
+
+        <div class="emergency-contacts" id="emergency-contacts">
+          
+            <div class="emergency-card universal">
+                <div class="emergency-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <div class="emergency-info">
+                    <h3>Ambulance</h3>
+                    <p>Medical Emergency</p>
+                    <a href="tel:911" class="emergency-call">190</a>
+                </div>
+            </div>
+            
+            <div class="emergency-card universal">
+                <div class="emergency-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="emergency-info">
+                    <h3>Fire Department</h3>
+                    <p>Fire Emergency</p>
+                    <a href="tel:911" class="emergency-call">197</a>
+                </div>
+            </div>
+            
+            <div class="emergency-card universal">
+                <div class="emergency-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="emergency-info">
+                    <h3>Police</h3>
+                    <p>Police Emergency</p>
+                    <a href="tel:911" class="emergency-call">197</a>
+                </div>
+            </div>
+             
+        </div>
+
+        <div class="modal" id="contact-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 id="contact-modal-title">Add Emergency Contact</h2>
+                <form id="contact-form">
+                    <input type="hidden" id="contact-id">
+                    
+                    <div class="form-group">
+                        <label for="contact-name">Name*</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-phone">Phone Number*</label>
+                        <input type="tel" id="contact-phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-relation">Relation*</label>
+                        <input type="text" id="contact-relation" required placeholder=" Doctor, Family, Friend">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-notes">Notes</label>
+                        <textarea id="contact-notes" rows="3" placeholder="write note here"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="bt1">Save Contact</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+            <!-- Prescriptions Section -->
+<section class="content-section" id="prescriptions">
+    <div class="prescriptions-container">
+        <div class="prescriptions-header">
+            <h1><i class="fas fa-file-prescription"></i> Prescriptions</h1>
+            <button id="upload-prescription-btn" class="btn-primary">
+                <i class="fas fa-upload"></i> Upload Prescription
+            </button>
+            <input type="file" id="prescription-upload" accept="image/*" multiple style="display: none;">
+        </div>
+
+     
+        <div class="prescriptions-gallery" id="prescriptions-gallery">
+            <div class="empty-state" id="empty-prescriptions">
+                <i class="fas fa-file-prescription" style="font-size: 3rem;"></i>
+                <p>No prescriptions uploaded yet</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="preview-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Prescription Preview</h2>
+            <div class="preview-container">
+                <img id="preview-image" src="logo.png" alt="Prescription">
+            </div>
+            <div class="preview-actions">
+                <button id="delete-prescription-btn" class="btn-danger">
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+         
+            <!-- Appointments Section -->
+<section class="content-section" id="appointments">
+    <div class="appointments-container">
+        <div class="appointments-header">
+            <h1><i class="fas fa-calendar-alt"></i> Medical Appointments</h1>
+            <button id="add-appointment-btn" class="btn-primary">
+                <i class="fas fa-plus"></i> Add Appointment
+            </button>
+        </div>
+
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <button id="prev-month"><i class="fas fa-chevron-left"></i></button>
+                <h2 id="current-month-year">Month Year</h2>
+                <button id="next-month"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="calendar-grid" id="calendar-grid">
+               
+            </div>
+        </div>
+
+        <div class="appointments-list">
+            <h2><i class="fas fa-list"></i> Upcoming Appointments</h2>
+            <div id="upcoming-appointments">
+                
+            </div>
+        </div>
+
+       
+        <div class="modal" id="appointment-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 id="appointment-modal-title">Add New Appointment</h2>
+                <form id="appointment-form">
+                    <input type="hidden" id="appointment-id">
+                    
+                    <div class="form-group">
+                        <label for="appointment-title">Title*</label>
+                        <input type="text" id="appointment-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-date">Date*</label>
+                        <input type="date" id="appointment-date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-time">Time*</label>
+                        <input type="time" id="appointment-time" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-location">Location</label>
+                        <input type="text" id="appointment-location">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-doctor">Doctor/Specialist</label>
+                        <input type="text" id="appointment-doctor">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointment-notes">Notes</label>
+                        <textarea id="appointment-notes" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="bt1">Save Appointment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+            <!-- Reminder Section -->
+<section class="content-section" id="reminders">
+    <div class="reminder-container">
+        <div class="reminder-header">
+            <h1><i class="fas fa-bell"></i> Medication Reminders</h1>
+            <button id="add-reminder-btn" class="btn-primary">
+                <i class="fas fa-plus"></i> Add Reminder
+            </button>
+        </div>
+
+      
+        <div class="upcoming-reminders">
+            <h2><i class="fas fa-clock"></i> Upcoming Medications</h2>
+            <div class="reminder-list" id="upcoming-reminders">
+                
+            </div>
+        </div>
+
+
+        <div class="active-reminders">
+            <h2><i class="fas fa-bell"></i> Active Reminders</h2>
+            <div class="reminder-list" id="active-reminders">
+        
+            </div>
+        </div>
+        
+
+
+        <div class="modal" id="reminder-modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 id="reminder-modal-title">Add New Reminder</h2>
+                <form id="reminder-form">
+                    <input type="hidden" id="reminder-id">
+                    
+                    <div class="form-group">
+                        <label for="reminder-medication">Medication*</label>
+                        <select id="reminder-medication" required>
+                            <option value="">Select medication</option>
+                          
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Medication Times*</label>
+                        <div id="medication-times-display">
+                       
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reminder-days">Days*</label>
+                        <div class="day-selector">
+                            <label><input type="checkbox" name="day" value="Sunday"> Sun</label>
+                            <label><input type="checkbox" name="day" value="Monday"> Mon</label>
+                            <label><input type="checkbox" name="day" value="Tuesday"> Tue</label>
+                            <label><input type="checkbox" name="day" value="Wednesday"> Wed</label>
+                            <label><input type="checkbox" name="day" value="Thursday"> Thu</label>
+                            <label><input type="checkbox" name="day" value="Friday"> Fri</label>
+                            <label><input type="checkbox" name="day" value="Saturday"> Sat</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reminder-note">Note</label>
+                        <textarea id="reminder-note" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="bt1">Save Reminder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <!-- Medication Section -->
+            <section class="content-section" id="medications">
+                <div class="medication-container">
+                    <div class="medication-header">
+                        <h1><i class="fas fa-pills"></i> Medication Tracker</h1>
+                        <button id="add-med-btn" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add Medication
+                        </button>
+                    </div>
+
+                
+                    <div class="medication-list" id="medication-list">
+                        
+                    </div>
+
+                    <div class="modal" id="med-modal">
+                        <div class="modal-content">
+                            <span class="close-btn">&times;</span>
+                            <h2 id="modal-title">Add New Medication</h2>
+                            <form id="med-form">
+                                <input type="hidden" id="med-id">
+                                
+                                <div class="form-group">
+                                    <label for="med-name">Medication Name*</label>
+                                    <input type="text" id="med-name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="med-dosage">Dosage*</label>
+                                    <input type="text" id="med-dosage" placeholder="e.g., 500mg" required>
+                                </div>
+
+                                
+                                <div class="form-group">
+                                    <label for="med-frequency">Frequency*</label>
+                                    <select id="med-frequency" required>
+                                        <option value="">Select frequency</option>
+                                        <option value="Once daily">Once daily</option>
+                                        <option value="Twice daily">Twice daily</option>
+                                        <option value="Three times daily">Three times daily</option>
+                                        <option value="As needed">As needed</option>
+                                        <option value="Weekly">Weekly</option>
+                                    </select>
+                                </div>
+                                
+                               
+                                <div class="form-group">
+                                    <label>Reminder Times*</label>
+                                    <div class="time-inputs" id="time-inputs">
+                                        
+                                    </div>
+                                    <button type="button" id="add-time-btn" class="btn-secondary">
+                                        <i class="fas fa-plus"></i> Add Time
+                                    </button>
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <label for="med-notes">Notes</label>
+                                    <textarea id="med-notes" rows="3"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="bt1">Save Medication</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="copyright">&copy; 2025 Wissem Ben Khalifa. All rights reserved.</p>
+            <div class="footer-links">
+                
+                <a href="http://localhost/prot1/" target="_blank" class="profile-link">
+                    <i class="fas fa-user-circle"></i> My Profile
+                </a>
+                
+                <a href="https://github.com/meliodasG4" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                
+                <a href="https://www.linkedin.com/in/ben-kalifa-wissem-b05996349/" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
+    <script src="med.js"></script>
+    <script src="rem.js"></script>
+    <script src="app.js"></script>
+    <script src="pre.js"></script>
+    <script src="em.js"></script>
+    
+    
+</body>
+</html>
